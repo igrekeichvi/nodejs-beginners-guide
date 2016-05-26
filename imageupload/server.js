@@ -1,6 +1,9 @@
 var http = require('http');
-http.createServer(function(request, response) {
+
+function onRequest(request, response) {
     response.writeHead(200, '{"Content-Type": "text/plain"}');
-    response.write('Again with hello world');
+    response.write('Hello from a callback');
     response.end();
-}).listen(8888);
+}
+
+http.createServer(onRequest).listen(8888);
